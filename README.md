@@ -1,6 +1,6 @@
-<h1 align="center">ObjectDetection by <a href="https://skafos.ai">Skafos</a></h1>
+<h1 align="center">ObjectDetectionIOS by <a href="https://skafos.ai">Skafos</a></h1>
 
-ObjectDetection is an example app that uses the Skafos platform for CoreML model integration and delivery. It's a good starting point for diving in, or a good reference for integrating Skafos in to your own app. Skafos is a platform that streamlines CoreML model updates without needing to submit a new version to the app store everytime a new model is ready for use.
+ObjectDetectionIOS is an example iOS app that uses the Skafos platform for CoreML model integration and delivery. It's a good starting point for diving in, or a good reference for integrating Skafos in to your own app. Skafos is a platform that streamlines CoreML model updates without needing to submit a new version to the app store everytime a new model is ready for use.
 
 This ObjectDetection example app specifically integrates and deploys an Object Detection machine learning model. [Object Detection](https://docs.metismachine.io/docs/object-detection) is a type of machine learning model that enables you to detect specific objects in an image, as well as identifying where in the image they are located. Similar objects can then be identified in new images, with a bounding box around each of the objects in question. The example model provided in this app will identify cars, bikes, or people. For more details about how to use and customize this model, please navigate to the [Skafos Turi Object Detection repo on github](https://github.com/skafos/TuriObjectDetection). 
 
