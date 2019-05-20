@@ -13,56 +13,30 @@ import Skafos
 
 class VisionObjectRecognitionViewController: ViewController {
     // This will be the asset name you use in drag and drop on the dashboard
-    private let assetName:String = "ObjectDetection"
+    private let modelName:String = "ObjectDetection"
     private var objectDetector:ObjectDetection! = ObjectDetection()
     private var detectionOverlay: CALayer! = nil
     
     // Vision parts
     private var requests = [VNRequest]()
-  
-    override func viewDidLoad() {
-      super.viewDidLoad()
-        
-      // Skafos load cached asset
-      // If you pass in a tag, Skafos will make a network request to fetch the asset with that tag
-        Skafos.load(asset: assetName, tag: "latest") { (error, asset) in
+    
+    // Check for model updates when the UI view appears
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        // Skafos load
+        Skafos.load(asset: self.modelName) { (error, asset) in
             // Log the asset in the console
             console.info(asset)
             guard error == nil else {
-                console.error("Skafos load asset error: \(String(describing: error))")
+                console.error("Skafos load error: \(String(describing: error))")
                 return
             }
-            guard let model = asset.model else {
-                console.info("No model available in the asset")
-                return
+            if let model = asset.model {
+                // Assign model to the objectDetector class
+                self.objectDetector.model = model
+                self.setupVision()
             }
-            // Assign model to the objectDetector class
-            self.objectDetector.model = model
-            self.setupVision()
         }
-      /***
-        Listen for changes in an asset with the given name. A notification is triggered anytime an
-        asset is downloaded from the servers. This can happen in response to a push notification
-        or when you manually call Skafos.load with a tag like above.
-       ***/
-      NotificationCenter.default.addObserver(self, selector: #selector(VisionObjectRecognitionViewController.reloadModel(_:)), name: Skafos.Notifications.assetUpdateNotification(assetName), object: nil)
-    }
-
-    @objc func reloadModel(_ notification:Notification) {
-        Skafos.load(asset: assetName) { (error, asset) in
-            console.info(asset)
-            guard error == nil else {
-                console.error("Skafos reload asset error: \(String(describing: error))")
-                return
-            }
-            guard let model = asset.model else {
-                console.error("No model available in the asset")
-                return
-           }
-          // Assign model to the objectDetector class
-          self.objectDetector.model = model
-          self.setupVision()
-      }
     }
 
     @discardableResult
