@@ -239,7 +239,7 @@
 			attributes = {
 				LastSwiftUpdateCheck = 1010;
 				LastUpgradeCheck = 1010;
-				ORGANIZATIONNAME = "Kevin Musselman";
+				ORGANIZATIONNAME = "Skafos, LLC";
 				TargetAttributes = {
 					39396C2621E3BA3400B2B134 = {
 						CreatedOnToolsVersion = 10.1;
@@ -315,7 +315,7 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-ObjectDetection/Pods-ObjectDetection-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Skafos/Skafos.framework",
+				"${PODS_ROOT}/Skafos/frameworks/Skafos.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";

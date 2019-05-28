@@ -6,5 +6,5 @@ target 'ObjectDetection' do
   use_frameworks!
 
   pod 'SnapKit'
-  pod 'Skafos', :path => '../skafos_ios_internal'
+  pod 'Skafos'
 end
