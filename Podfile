@@ -6,5 +6,5 @@ target 'ObjectDetection' do
   use_frameworks!
 
   pod 'SnapKit'
-  pod 'Skafos', '~> 4.0.1'
+  pod 'Skafos', '~> 4.0.2'
 end
